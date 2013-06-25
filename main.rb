@@ -72,7 +72,7 @@ get '/calc/:first/:operation/:second' do
     erb :calc
   end
 
-get '/calc' do
+get '/calc_form' do
   @first = params[:first].to_f
   @operation = params[:operation]
   @second = params[:second].to_f
@@ -82,5 +82,8 @@ get '/calc' do
       when "product" then @first * @second
       when "divide" then @first / @second
     end
-    erb :calc
+    erb :calc_form
   end
+
+
+
