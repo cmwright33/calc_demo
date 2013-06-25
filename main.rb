@@ -55,6 +55,32 @@ end
 
 get '/oh_hai/:name' do
   @name = params[:name]
+  @answer_to_the_universe = params[42]
   erb(:hai)
   end
 
+get '/calc/:first/:operation/:second' do
+  @first = params[:first].to_f
+  @operation = params[:operation]
+  @second = params[:second].to_f
+  @result = case @operation
+      when "sum" then @first + @second
+      when "difference" then @first - @second
+      when "product" then @first * @second
+      when "divide" then @first / @second
+    end
+    erb :calc
+  end
+
+get '/calc' do
+  @first = params[:first].to_f
+  @operation = params[:operation]
+  @second = params[:second].to_f
+  @result = case @operation
+      when "sum" then @first + @second
+      when "difference" then @first - @second
+      when "product" then @first * @second
+      when "divide" then @first / @second
+    end
+    erb :calc
+  end
